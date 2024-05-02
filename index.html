@@ -1,5 +1,5 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -9,85 +9,102 @@
       background-color: #a6e4f5;
       font-family: "Courier New", monospace;
       color: black;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      background-color: #7ecfe6;
+      padding: 20px 0;
+    }
+
+    h1 {
+      font-family: "DejaVu Sans Mono", monospace;
+      font-size: 36px;
+      margin: 0;
     }
 
     .container {
-      /* My container under actual projects */
       margin: 20px auto;
-      /* Center the container */
       padding: 20px;
       background-color: #92d6e8;
-      /* Add a background to the container for better readability */
     }
-
-.header {
-text-align: center;
-/* Center align the header */
-background-color: #7ecfe6;
-/* Different light pink color for the header background */
-font-family: "DejaVu Sans Mono", monospace;
-padding: 3px;
-font-size: 24px;
-/* Bigger font size */
-#text-shadow: 2px 2px 4px rgba(955, 870, 99947, 0.5);
-/* Add shadow to the text, white*/
-}
 
     .main {
       margin-top: 20px;
       padding: 10px;
-      /* Add padding to the main content */
     }
 
     .sub-header {
-      font-weight: normal;
-      /* Make the sub-header not bold */
-      margin: 10px;
-      /* Add some margin to the sub-header */
+      font-weight: bold;
+      margin: 10px 0;
     }
 
     a {
       color: #1c6a80;
-      /* Slightly darker pink for the hyperlink color */
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .project-section {
+      margin-top: 20px;
+      padding-left: 20px;
+      border-left: 2px solid #1c6a80;
     }
   </style>
-  <script src="https://localhost:8080/target/target-script-min.js#anonymous"></script>
 </head>
 
 <body>
   <header>
-    <div class="header">
-      <h1>Welcome to Gelila's Spring 2024 page! </h1>
-    </div>
+    <h1>Welcome to Gelila's Spring 2024 page!</h1>
   </header>
   <div class="main">
-    Hello :) My name is Gelila and I'm a junior majoring in data science and computer science. This repository is where I
-    will put all my projects and homework for two of my classes: DATA340 and DATA441. 
+    Hello :) My name is Gelila and I'm a junior majoring in data science and computer science. This repository is where
+    I will put all my projects and homework for two of my classes: DATA340 and DATA441.
   </div>
 
   <div class="container">
     <div class="DATA441">
-      <h3 class="sub-header"> DATA441: </h3>
-      <p><a href="DATA441/Homework1.ipynb">HMW 1</a></p>
-      <p><a href="DATA441/Homework2.ipynb">HMW 2</a></p>
-      <p><a href="DATA441/Homework3.ipynb">HMW 3</a></p>
-      <p><a href="DATA441/Homework4.ipynb">HMW 4</a></p>
-      <p><a href="DATA441/Homework5.ipynb">HMW 5</a></p>
-      My Final Project Info!
-      <p><a href="DATA441/Homework5.ipynb">Link to Google Doc outline of my Project</a></p>
-    </div>
-    <div class="DATA340">
-      <h3 class="sub-header"> DATA340: </h3>
-      <p><a href="Files/Homework1.ipynb">HMW 1</a></p>
-      <p><a href="Files/Homework2.ipynb">HMW 2</a></p>
-      <p><a href="Files/Homework2.ipynb">HMW 3</a></p>
-      <!-- Add project links here -->
+      <h3 class="sub-header">DATA441:</h3>
+      <div class="project-section">
+        <h4>Homeworks:</h4>
+        <ul>
+          <li><a href="DATA441/Homework1.ipynb">HMW 1</a></li>
+          <li><a href="DATA441/Homework2.ipynb">HMW 2</a></li>
+          <li><a href="DATA441/Homework3.ipynb">HMW 3</a></li>
+          <li><a href="DATA441/Homework4.ipynb">HMW 4</a></li>
+          <li><a href="DATA441/Homework5.ipynb">HMW 5</a></li>
+        </ul>
+      </div>
+      <div class="project-section">
+        <h4>Final Project:</h4>
+        <ul>
+          <li>My Final Project!</li>
+          <li><a href="DATA441/FinalProject_InfoDoc.docx">Link to Information Doc</a></li>
+          <li><a href="DATA441/FinalProject_Current.ipynb">Link to Current ipynb file</a></li>
+        </ul>
+      </div>
     </div>
 
-    <footer>
-      <!-- Gelila Yimtatu -->
-    </footer>
+    <div class="DATA340">
+      <h3 class="sub-header">DATA340:</h3>
+      <div class="project-section">
+        <h4>Homeworks:</h4>
+        <ul>
+          <li><a href="Files/Homework1.ipynb">HMW 1</a></li>
+          <li><a href="Files/Homework2.ipynb">HMW 2</a></li>
+          <li><a href="Files/Homework3.ipynb">HMW 3</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
+  <footer>
+    <!-- Gelila Yimtatu -->
+  </footer>
 </body>
 
 </html>
