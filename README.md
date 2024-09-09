@@ -1,4 +1,4 @@
-# 👋 Hi, I’m Gelila Yimtatu
+# 👋 Hi, I’m Gelila!
 - 📫 My email is gfyimtatu@wm.edu
 - 😄 Pronouns: she/her
 - 👀 I’m interested in digital design and video design!
