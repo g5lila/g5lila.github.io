@@ -3,73 +3,162 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Gelila's Website</title>
+  <title>Gelila's Portfolio</title>
   <style>
-    body {
-      background-color: #f1fafd;
-      font-family: "Verdana", sans-serif;
-      color: #5343d31;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: "Verdana", sans-serif;
     }
 
-    header {
-      text-align: center;
-      background-color: #c6e2ec;
-      padding: 40px;
-    font-family: "Verdana";
-      font-size:56px;
-      margin: 0;
-      color: #fff;
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f7f9fc;
+      color: #1a1a1a;
     }
 
-    h1 {
-      font-family: "Verdana";
-      font-size: 60px;
-      margin: 0;
-      color: #fff;
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      height: 100vh;
+      background-color: #ffffff;
+      border-right: 1px solid #e0e0e0;
+      padding: 40px 25px;
+      position: fixed;
+      box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);
     }
 
-    .main {
-      margin-top: 20px;
-      padding: 20px;
-      background-color: #ceeaf3;
-      color: #000;
+    .sidebar h2 {
+      font-size: 26px;
+      color: #3a2f85;
+      margin-bottom: 8px;
     }
 
+    .sidebar p {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 40px;
+    }
 
-    .project-section {
-      margin-top: 20px;
-      padding-left: 20px;
-      border-left: 4px solid #d2691e;
+    .sidebar nav a {
+      display: block;
+      margin: 20px 0;
+      text-decoration: none;
+      color: #444;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar nav a:hover {
+      color: #3a2f85;
+      padding-left: 5px;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 260px;
+      padding: 60px 60px 80px;
+      background-color: #f7f9fc;
+      flex: 1;
+    }
+
+    section {
+      margin-bottom: 80px;
+      max-width: 900px;
+    }
+
+    section h1 {
+      font-size: 32px;
+      color: #3a2f85;
+      margin-bottom: 16px;
+      border-bottom: 2px solid #d6d4f0;
+      padding-bottom: 6px;
+    }
+
+    section p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #333;
     }
 
     footer {
-      font-family: "Verdana";
       text-align: center;
-      padding: 10px;
-      background-color: #e3eef1;
-      margin-top: 20px;
+      font-size: 14px;
+      color: #999;
+      margin-top: 40px;
+      padding: 20px 0;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Optional: Add hover shadow to sections */
+    section:hover {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      padding: 20px;
+      transition: all 0.3s ease-in-out;
     }
   </style>
 </head>
 
 <body>
-  
-  <header>
-    <h1>Gelila's Github Page</h1>
-  </header>
-  
-  <div class="main">
-    Hello! My name is Gelila. I am a graduate from the College of William & Mary with a B.S. in Data Science and a minor in Computer science. 
-    I am always eager about applying my skills to make valuable contributions to the data science industry!
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Gelila</h2>
+    <p>B.S. in Data Science<br>William & Mary</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 
+  <!-- Main Content -->
+  <div class="main-content">
+    <section id="about">
+      <h1>About</h1>
+      <p>Hello! I'm Gelila, a recent graduate from the College of William & Mary with a B.S. in Data Science and a minor in Computer Science. I’m passionate about solving real-world problems using data-driven insights, and I'm eager to contribute to innovative, meaningful projects in tech and beyond.</p>
+    </section>
 
-  <footer>
-    &copy; Last Updated September 2025
-  </footer>
-  
+    <section id="projects">
+      <h1>Projects</h1>
+      <p>Check out my recent work involving machine learning, data visualization, and real-world datasets. More details and links to GitHub can go here.</p>
+    </section>
+
+    <section id="education">
+      <h1>Education</h1>
+      <p><strong>College of William & Mary</strong><br>
+        B.S. in Data Science, Minor in Computer Science<br>
+        Graduated: May 2025</p>
+    </section>
+
+    <section id="experience">
+      <h1>Experience</h1>
+      <p>Internships, research projects, or assistantships can be described here. Include your role, tools used, and key accomplishments.</p>
+    </section>
+
+    <section id="contact">
+      <h1>Contact</h1>
+      <p>Email: yourname@email.com<br>
+        LinkedIn: linkedin.com/in/yourprofile<br>
+        GitHub: github.com/yourusername</p>
+    </section>
+
+    <footer>
+      &copy; Gelila • Last Updated September 2025
+    </footer>
+  </div>
+
 </body>
 
 </html>
