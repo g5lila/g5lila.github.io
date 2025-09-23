@@ -1,19 +1,123 @@
-#contact.html
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>About | Gelila's Portfolio</title>
-  <link rel="stylesheet" href="style.css"> <!-- external CSS file -->
+  <title>Gelila's Portfolio</title>
+  <style>
+    * {a
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Verdana", sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f7f9fc;
+      color: #1a1a1a;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      height: 100vh;
+      background-color: #ffffff;
+      border-right: 1px solid #e0e0e0;
+      padding: 40px 25px;
+      position: fixed;
+      box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);
+      <img src="headshot.jpeg" alt="Headshot" />
+    }
+
+    .sidebar h2 {
+      font-size: 26px;
+      color: #3a2f85;
+      margin-bottom: 8px;
+    }
+
+    .sidebar p {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 40px;
+    }
+
+    .sidebar nav a {
+      display: block;
+      margin: 20px 0;
+      text-decoration: none;
+      color: #444;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar nav a:hover {
+      color: #3a2f85;
+      padding-left: 5px;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 260px;
+      padding: 60px 60px 80px;
+      background-color: #f7f9fc;
+      flex: 1;
+    }
+
+    section {
+      margin-bottom: 80px;
+      max-width: 900px;
+    }
+
+    section h1 {
+      font-size: 32px;
+      color: #3a2f85;
+      margin-bottom: 16px;
+      border-bottom: 2px solid #d6d4f0;
+      padding-bottom: 6px;
+    }
+
+    section p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #999;
+      margin-top: 40px;
+      padding: 20px 0;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Optional: Add hover shadow to sections */
+    section:hover {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      padding: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
 </head>
+
 <body>
 
+  <!-- Sidebar -->
   <div class="sidebar">
     <h2>Gelila</h2>
     <p>B.S. in Data Science<br>William & Mary</p>
     <nav>
-      <a href="about.html">About</a>
+      <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
       <a href="education.html">Education</a>
       <a href="experience.html">Experience</a>
@@ -21,15 +125,19 @@
     </nav>
   </div>
 
+  <!-- About Content -->
   <div class="main-content">
     <section id="about">
       <h1>About</h1>
-      <p>Hello! I'm Gelila, a recent graduate...</p>
+      <p>Hello! I'm Gelila, a recent graduate from the College of William & Mary with a B.S. in Data Science and a minor in Computer Science. 
+        I'm enthusiastic about applying my skills to make valuable contributions to the data science industry. Browse to learn more about me and what I do! </p>
     </section>
+
     <footer>
       &copy; Gelila • Last Updated September 2025
     </footer>
   </div>
 
 </body>
+
 </html>
