@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Gelila's Portfolio</title>
+  <title> About Section </title>
   <style>
     * {a
       box-sizing: border-box;
@@ -117,11 +117,11 @@
     <h2>Gelila</h2>
     <p>B.S. in Data Science<br>William & Mary</p>
     <nav>
-      <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
       <a href="education.html">Education</a>
       <a href="experience.html">Experience</a>
       <a href="contact.html">Contact</a>
+      <!--  <a href="index.html">Home</a> -->
     </nav>
   </div>
 
