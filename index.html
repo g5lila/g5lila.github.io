@@ -106,6 +106,69 @@
       padding: 20px;
       transition: all 0.3s ease-in-out;
     }
+
+      .expand-btn {
+    display: none;
+    margin-top: 12px;
+    background: #3a2f85;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease;
+  }
+
+  section:hover .expand-btn {
+    display: inline-block;
+  }
+
+  .expand-btn:hover {
+    background: #2a1f65;
+  }
+
+  /* Expanded section style */
+  .expanded {
+    position: fixed;
+    top: 0;
+    left: 260px; /* keep sidebar visible */
+    width: calc(100% - 260px);
+    height: 100vh;
+    background: #fff;
+    overflow-y: auto;
+    padding: 60px;
+    z-index: 1000;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .expanded h1 {
+    font-size: 36px;
+  }
+
+  .close-btn {
+    display: block;
+    margin-bottom: 20px;
+    background: #e74c3c;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+      
   </style>
 </head>
 
@@ -160,7 +223,34 @@
       &copy; Gelila • Last Updated September 2025
     </footer>
   </div>
+<script>
+  // Expand/collapse behavior
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+
+    sections.forEach(section => {
+      const expandBtn = document.createElement("button");
+      expandBtn.textContent = "Expand";
+      expandBtn.classList.add("expand-btn");
+      section.appendChild(expandBtn);
+
+      expandBtn.addEventListener("click", () => {
+        section.classList.add("expanded");
+
+        // Add a close button
+        const closeBtn = document.createElement("button");
+        closeBtn.textContent = "Close";
+        closeBtn.classList.add("close-btn");
+        section.insertBefore(closeBtn, section.firstChild);
+
+        closeBtn.addEventListener("click", () => {
+          section.classList.remove("expanded");
+          closeBtn.remove();
+        });
+      });
+    });
+  });
+</script>
 
 </body>
-
 </html>
