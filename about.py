@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>About | Gelila's Portfolio</title>
-  <link rel="stylesheet" href="style.css"> <!-- External CSS file -->
-</head>
 <body>
 
   <!-- Sidebar -->
