@@ -1,161 +1,291 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- Declares the document type and version of HTML -->
+<html lang="en"> <!-- Root element of the page, language is English -->
 
 <head>
-  <meta charset="UTF-8">
-  <title>Gelila's Portfolio</title>
+  <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8 -->
+  <title>Gelila's Portfolio</title> <!-- Title shown in browser tab -->
+
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Verdana", sans-serif;
+    /* ========== GLOBAL STYLES ========== */
+    * { /* Apply to all elements */
+      box-sizing: border-box; /* Includes padding & border in width/height */
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+      font-family: "Verdana", sans-serif; /* Set default font */
     }
 
-    body {
-      display: flex;
-      min-height: 100vh;
-      background-color: #f7f9fc;
-      color: #1a1a1a;
+    body { /* Page background and layout */
+      display: flex; /* Use flexbox for layout */
+      min-height: 100vh; /* Ensure full viewport height */
+      background-color: #f7f9fc; /* Light gray background */
+      color: #1a1a1a; /* Dark text color */
     }
 
-    /* Sidebar */
+    /* ========== SIDEBAR ========== */
     .sidebar {
-      width: 260px;
-      height: 100vh;
-      background-color: #ffffff;
-      border-right: 1px solid #e0e0e0;
-      padding: 40px 25px;
-      position: fixed;
-      box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05);
+      width: 260px; /* Sidebar width */
+      height: 100vh; /* Full height of viewport */
+      background-color: #ffffff; /* White background */
+      border-right: 1px solid #e0e0e0; /* Thin border on the right */
+      padding: 40px 25px; /* Inner spacing */
+      position: fixed; /* Stays fixed while scrolling */
+      box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05); /* Subtle shadow */
     }
 
     .sidebar h2 {
-      font-size: 26px;
+      font-size: 26px; /* Size of name */
       color: #3a2f85; /* Dark blue */
-      margin-bottom: 8px;
+      margin-bottom: 8px; /* Space below */
     }
 
     .sidebar p {
-      font-size: 14px;
-      color: #777;
-      margin-bottom: 40px;
+      font-size: 14px; /* Smaller text for description */
+      color: #777; /* Gray color */
+      margin-bottom: 40px; /* Space below description */
     }
 
     .sidebar nav a {
-      display: block;
-      margin: 20px 0;
-      text-decoration: none;
-      color: #444;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      cursor: pointer;
+      display: block; /* Each link takes a full line */
+      margin: 20px 0; /* Vertical spacing between links */
+      text-decoration: none; /* Remove underline */
+      color: #444; /* Dark gray link */
+      font-weight: 600; /* Bold links */
+      transition: all 0.2s ease; /* Smooth hover effect */
+      cursor: pointer; /* Pointer on hover */
     }
 
     .sidebar nav a:hover {
-      color: #3a2f85;
-      padding-left: 5px;
+      color: #3a2f85; /* Dark blue on hover */
+      padding-left: 5px; /* Slight slide to the right */
     }
 
-    /* Main Content */
+    /* ========== MAIN CONTENT ========== */
     .main-content {
-      margin-left: 260px;
-      padding: 60px 60px 80px;
-      background-color: #f7f9fc;
-      flex: 1;
+      margin-left: 260px; /* Push content aside to fit sidebar */
+      padding: 60px 60px 80px; /* Inner padding */
+      background-color: #f7f9fc; /* Same background as body */
+      flex: 1; /* Take remaining space */
     }
 
-    /* Base Section Styles */
+    /* ========== SECTION STYLES ========== */
     section {
-      margin-bottom: 80px;
-      max-width: 900px;
-      background-color: #f7f9fc;
-      border-radius: 0;
-      box-shadow: none;
-      padding: 20px;
+      margin-bottom: 80px; /* Space between sections */
+      max-width: 900px; /* Limit content width */
+      background-color: #f7f9fc; /* Light background */
+      border-radius: 0; /* No rounded corners initially */
+      box-shadow: none; /* No shadow initially */
+      padding: 20px; /* Inner spacing */
       transition: transform 0.3s ease-in-out,
                   background-color 0.3s ease-in-out,
-                  box-shadow 0.3s ease-in-out;
-      transform: translateY(0);
-      position: relative;
-      min-height: 300px; /* Default height */
+                  box-shadow 0.3s ease-in-out; /* Smooth hover animation */
+      transform: translateY(0); /* Default position */
+      position: relative; /* Allows positioning of children like buttons */
+      min-height: 300px; /* Default height for sections */
     }
 
     section:hover {
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-      transform: translateY(-8px) scale(1.01);
+      background-color: #ffffff; /* White when hovered */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* Soft shadow */
+      transform: translateY(-8px) scale(1.01); /* Slight lift and zoom */
     }
 
-    /* Section Overrides */
-    .section_projects {
-      min-height: 220px;
-    }
+    /* ========== SECTION HEIGHT VARIATIONS ========== */
+    .section_about { min-height: 320px; } /* Smaller */
+    .section_projects { min-height: 250px; } /* Smaller */
+    .section_education { min-height: 240px; } /* Taller */
+    .section_experience { min-height: 240px; }
+    .section_contact { min-height: 250px; }
 
-    .section_education {
-      min-height: 340px;
-    }
-
-    .section_experience {
-      min-height: 340px;
-    }
-
-    .section_contact {
-      min-height: 340px;
-    }
-
-    /* Section Titles & Text */
+    /* ========== SECTION TITLES AND TEXT ========== */
     section h1 {
-      font-size: 32px;
-      color: #3a2f85;
-      margin-bottom: 16px;
-      border-bottom: 2px solid #d6d4f0;
-      padding-bottom: 6px;
+      font-size: 32px; /* Large title */
+      color: #3a2f85; /* Dark blue */
+      margin-bottom: 16px; /* Space below */
+      border-bottom: 2px solid #d6d4f0; /* Decorative underline */
+      padding-bottom: 6px; /* Padding for underline */
     }
 
     section p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #333;
+      font-size: 16px; /* Normal text */
+      line-height: 1.7; /* More readable spacing */
+      color: #333; /* Dark text */
     }
 
+    /* ========== FOOTER ========== */
     footer {
-      text-align: center;
-      font-size: 14px;
-      color: #999;
-      margin-top: 40px;
-      padding: 20px 0;
-      border-top: 1px solid #e0e0e0;
+      text-align: center; /* Centered text */
+      font-size: 14px; /* Smaller text */
+      color: #999; /* Light gray */
+      margin-top: 40px; /* Space above */
+      padding: 20px 0; /* Padding inside footer */
+      border-top: 1px solid #e0e0e0; /* Thin line at top */
     }
 
-    /* Smooth Scroll */
-    html {
-      scroll-behavior: smooth;
-    }
+    /* ========== SCROLL BEHAVIOR ========== */
+    html { scroll-behavior: smooth; } /* Smooth scrolling for anchors */
 
-    /* Expand Button */
+    /* ========== EXPAND BUTTON ========== */
     .expand-btn {
-      display: inline-block;
-      margin-top: 12px;
-      background: #3a2f85;
-      color: white;
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: background 0.2s ease;
-      position: absolute;
-      bottom: 10px; /* Correct placement */
-      right: 20px;
+      display: inline-block; /* Inline button */
+      margin-top: 12px; /* Space above */
+      background: #3a2f85; /* Dark blue background */
+      color: white; /* White text */
+      padding: 6px 12px; /* Padding */
+      border-radius: 6px; /* Rounded corners */
+      cursor: pointer; /* Pointer on hover */
+      font-size: 14px; /* Small text */
+      transition: background 0.2s ease; /* Smooth hover */
+      position: absolute; /* Position inside section */
+      bottom: 10px; /* Stick near bottom */
+      right: 20px; /* Stick to right side */
     }
 
     .expand-btn:hover {
-      background: #2a1f65;
+      background: #2a1f65; /* Darker blue when hovered */
     }
 
-    /* Expanded section style */
+    /* ========== EXPANDED SECTION ========== */
     .expanded {
-      position: fixed;
-      top: 0;
-      left: 
+      position: fixed; /* Cover screen */
+      top: 0; /* Align top */
+      left: 260px; /* Leave sidebar visible */
+      width: calc(100% - 260px); /* Fill remaining width */
+      height: 100vh; /* Full screen height */
+      background: #fff; /* White background */
+      overflow-y: auto; /* Scroll if content is long */
+      padding: 60px; /* Inner padding */
+      z-index: 1000; /* On top of everything */
+      box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1); /* Shadow on left */
+      animation: fadeIn 0.3s ease-in-out; /* Animation on open */
+    }
+
+    .expanded h1 {
+      font-size: 36px; /* Larger title in expanded mode */
+    }
+
+    /* Close button inside expanded section */
+    .close-btn {
+      display: block; /* Full line button */
+      margin-bottom: 20px; /* Space below */
+      background: #e74c3c; /* Red background */
+      color: white; /* White text */
+      padding: 6px 14px; /* Padding */
+      border-radius: 6px; /* Rounded corners */
+      cursor: pointer; /* Pointer cursor */
+      font-size: 14px; /* Small text */
+      border: none; /* No border */
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); } /* Start invisible */
+      to { opacity: 1; transform: translateY(0); } /* End visible */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Gelila</h2> <!-- Name -->
+    <p>B.S. in Data Science<br>William & Mary</p> <!-- Short description -->
+    <nav>
+      <!-- Navigation links (scroll or expand sections) -->
+      <a data-target="about">About</a>
+      <a data-target="projects">Projects</a>
+      <a data-target="education">Education</a>
+      <a data-target="experience">Experience</a>
+      <a data-target="contact">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- About Section -->
+    <section id="about" class = "section_about">
+      <h1>About</h1>
+      <p>Hello! I'm Gelila, a recent graduate from the College of William & Mary with a B.S. in Data Science and a minor in Computer Science. 
+        I'm enthusiastic about applying my skills to make valuable contributions to the data science industry. Browse to learn more about me and what I do!</p>
+      <button class="expand-btn">Expand</button> <!-- Expand button -->
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section_projects">
+      <h1>Projects</h1>
+      <p>Check out my recent work involving machine learning, data visualization, and real-world datasets. More details and links to GitHub can go here.</p>
+      <button class="expand-btn">Expand</button>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section_education">
+      <h1>Education</h1>
+      <p><strong>College of William & Mary</strong><br>
+        B.S. in Data Science, Minor in Computer Science<br>
+        Graduated: June 2025</p>
+      <button class="expand-btn">Expand</button>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section_experience">
+      <h1>Experience</h1>
+      <p>Internships, research projects, or assistantships can be described here. Include your role, tools used, and key accomplishments.</p>
+      <button class="expand-btn">Expand</button>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section_contact">
+      <h1>Contact</h1>
+      <p>Email: gyimtatu21@gmail.com<br>
+        LinkedIn: https://www.linkedin.com/in/gelilayimtatu/<br>
+        GitHub: github.com/yourusername</p>
+      <button class="expand-btn">Expand</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      &copy; Gelila • Last Updated September 2025
+    </footer>
+  </div>
+
+  <!-- JavaScript for Expand/Collapse -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => { // Run after page loads
+      const sections = document.querySelectorAll("section"); // All sections
+      const navLinks = document.querySelectorAll(".sidebar nav a"); // Sidebar links
+
+      // Loop through each section
+      sections.forEach(section => {
+        const expandBtn = section.querySelector(".expand-btn"); // Get expand button
+        expandBtn.addEventListener("click", () => openSection(section)); // Expand on click
+      });
+
+      // Sidebar link click
+      navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          const targetId = link.getAttribute("data-target"); // Get target section id
+          const targetSection = document.getElementById(targetId); // Find section
+          openSection(targetSection); // Expand it
+        });
+      });
+
+      // Function to expand a section
+      function openSection(section) {
+        section.classList.add("expanded"); // Add expanded class
+
+        // Create close button
+        const closeBtn = document.createElement("button");
+        closeBtn.textContent = "Close"; // Button label
+        closeBtn.classList.add("close-btn"); // Add style
+        section.insertBefore(closeBtn, section.firstChild); // Insert at top
+
+        // Close on click
+        closeBtn.addEventListener("click", () => {
+          section.classList.remove("expanded"); // Remove expanded
+          closeBtn.remove(); // Remove button
+        });
+      }
+    });
+  </script>
+</body>
+</html>
