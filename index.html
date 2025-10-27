@@ -1,4 +1,264 @@
-<!DOCTYPE html> <!-- Declares the document type and version of HTML -->
+<!DOCTYPE html> <!-- Declares the document type as HTML5 -->
+<html lang="en"> <!-- Root element, language set to English -->
+<head> <!-- Head section for metadata and styles -->
+  <meta charset="UTF-8"> <!-- Sets character encoding -->
+  <title>Gelila's Portfolio</title> <!-- Title shown in browser tab -->
+  <style>
+    * { /* Reset and apply defaults */
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+      box-sizing: border-box; /* Includes padding & border in dimensions */
+      font-family: "Verdana", sans-serif; /* Set default font */
+    }
+
+    body { /* Page layout */
+      display: flex; /* Use flexbox for layout */
+      background: #f5f7fa; /* Light background */
+      min-height: 100vh; /* Ensure full screen height */
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar { 
+      width: 220px; /* Sidebar width */
+      background: #0b1d35; /* Dark navy background */
+      color: white; /* White text */
+      padding: 40px 20px; /* Inner spacing */
+      position: fixed; /* Fix sidebar on left */
+      height: 100%; /* Full page height */
+      display: flex; /* Flexbox inside sidebar */
+      flex-direction: column; /* Stack elements vertically */
+      justify-content: space-between; /* Push social icons to bottom */
+    }
+
+    .sidebar h2 { 
+      color: #fff; /* White text */
+      font-size: 22px; /* Font size for name */
+      margin-bottom: 20px; /* Space below name */
+    }
+
+    .sidebar nav a { 
+      display: block; /* Each link takes a line */
+      color: #ccc; /* Gray text color */
+      text-decoration: none; /* Remove underline */
+      margin: 18px 0; /* Vertical spacing */
+      transition: 0.3s; /* Smooth hover */
+      font-size: 15px; /* Font size for links */
+    }
+
+    .sidebar nav a:hover { 
+      color: #fff; /* White on hover */
+      padding-left: 6px; /* Indent slightly on hover */
+    }
+
+    .sidebar .social { 
+      display: flex; /* Row layout for social icons */
+      gap: 10px; /* Space between icons */
+    }
+
+    .sidebar .social a { 
+      width: 28px; /* Icon box width */
+      height: 28px; /* Icon box height */
+      background: #fff; /* White background */
+      border-radius: 4px; /* Rounded corners */
+      display: flex; /* Flex for centering */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      color: #0b1d35; /* Navy text/icon */
+      font-size: 14px; /* Icon font size */
+      text-decoration: none; /* Remove underline */
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content { 
+      margin-left: 220px; /* Leave space for sidebar */
+      flex: 1; /* Take remaining width */
+    }
+
+    .profile-card { 
+      background: #fff; /* White background box */
+      width: 100%; /* Stretch full width */
+      min-height: 100vh; /* Stretch full height of page */
+      padding: 40px; /* Inner spacing */
+      border-radius: 0; /* No rounded corners */
+    }
+
+    .profile-card img { 
+      width: 130px; /* Profile image size */
+      height: 130px; /* Profile image height */
+      border-radius: 50%; /* Make image circular */
+      object-fit: cover; /* Crop image properly */
+      margin-bottom: 20px; /* Space below image */
+    }
+
+    .profile-card h1 { 
+      font-size: 28px; /* Font size for name */
+      color: #111; /* Dark text */
+      text-align: left; /* Left-align text */
+      margin-bottom: 10px; /* Space below */
+    }
+
+    .profile-card p { 
+      font-size: 16px; /* Font size for subtitle */
+      color: #666; /* Gray text */
+      margin-bottom: 20px; /* Space below */
+      text-align: left; /* Left-align subtitle */
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-row { 
+      display: flex; /* Place buttons side by side */
+      margin-bottom: 30px; /* Space below row */
+    }
+
+    .btn { 
+      flex: 1; /* Each button takes equal width */
+      padding: 16px 0; /* Top & bottom padding */
+      border: none; /* Remove borders */
+      cursor: pointer; /* Pointer on hover */
+      font-size: 14px; /* Button text size */
+      font-weight: bold; /* Bold text */
+      transition: 0.3s; /* Smooth hover */
+      border-radius: 0; /* No rounded corners */
+    }
+
+    .btn.resume { 
+      background: #e74c3c; /* Red background */
+      color: #fff; /* White text */
+    }
+
+    .btn.resume:hover { background: #c0392b; } /* Darker red on hover */
+
+    .btn.portfolio { 
+      background: #0b1d35; /* Navy background */
+      color: #fff; /* White text */
+    }
+
+    .btn.portfolio:hover { background: #082445; } /* Darker navy on hover */
+
+    /* ===== ABOUT SECTION ===== */
+    .about { 
+      text-align: left; /* Left-align text */
+      margin-top: 20px; /* Space above */
+    }
+
+    .about h2 { 
+      font-size: 22px; /* About heading size */
+      margin-bottom: 10px; /* Space below heading */
+      color: #111; /* Dark text */
+    }
+
+    .about p { 
+      color: #444; /* Medium gray text */
+      line-height: 1.6; /* Line spacing */
+      margin-bottom: 20px; /* Space below */
+    }
+
+    /* ===== SKILLS ===== */
+    .skill { 
+      margin-bottom: 20px; /* Space below each skill */
+    }
+
+    .skill span { 
+      font-size: 14px; /* Label size */
+      font-weight: bold; /* Bold text */
+      display: block; /* Each label on its own line */
+      margin-bottom: 6px; /* Space below */
+      color: #333; /* Dark text */
+    }
+
+    .progress { 
+      width: 100%; /* Full width bar */
+      height: 10px; /* Bar height */
+      background: #eee; /* Light gray background */
+      border-radius: 5px; /* Rounded bar */
+      overflow: hidden; /* Clip inner div */
+    }
+
+    .progress div { 
+      height: 100%; /* Full bar height */
+      background: #e74c3c; /* Red progress color */
+      width: 0; /* Start width at 0 */
+      animation: grow 1.5s forwards; /* Animate to target width */
+    }
+
+    @keyframes grow { 
+      from { width: 0; } /* Start empty */
+      to { width: var(--level); } /* End at percentage */
+    }
+
+    footer { 
+      text-align: center; /* Center footer text */
+      font-size: 14px; /* Small font */
+      color: #666; /* Gray text */
+      margin-top: 40px; /* Space above footer */
+    }
+  </style>
+</head>
+<body> <!-- Main body -->
+  <!-- Sidebar -->
+  <div class="sidebar"> <!-- Sidebar container -->
+    <div>
+      <h2>Gelila</h2> <!-- Sidebar name -->
+      <nav> <!-- Navigation links -->
+        <a href="#">Home</a> <!-- Nav link -->
+        <a href="#">About</a>
+        <a href="#">Resume</a>
+        <a href="#">Services</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+    <div class="social"> <!-- Social links row -->
+      <a href="#">in</a> <!-- LinkedIn placeholder -->
+      <a href="#">G</a> <!-- GitHub placeholder -->
+      <a href="#">T</a> <!-- Twitter placeholder -->
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content"> <!-- Main content area -->
+    <div class="profile-card"> <!-- White profile section -->
+      <img src="https://via.placeholder.com/130" alt="Profile picture"> <!-- Profile image -->
+      <h1>Hi, I'm <br> Gelila</h1> <!-- Name heading -->
+      <p>Data Scientist</p> <!-- Subtitle/role -->
+
+      <div class="btn-row"> <!-- Button container -->
+        <button class="btn resume">DOWNLOAD RESUME</button> <!-- Resume button -->
+        <button class="btn portfolio">VIEW PORTFOLIO</button> <!-- Portfolio button -->
+      </div>
+
+      <div class="about"> <!-- About section -->
+        <h2>About</h2> <!-- Section heading -->
+        <p>I’m a data scientist passionate about uncovering insights and building models that drive impactful decisions. With experience in Python, R, and data visualization, I thrive on turning raw data into meaningful stories.</p>
+        
+        <div class="skill"> <!-- Skill item -->
+          <span>Machine Learning</span> <!-- Skill label -->
+          <div class="progress"><div style="--level: 85%"></div></div> <!-- Skill bar -->
+        </div>
+        <div class="skill">
+          <span>Data Visualization</span>
+          <div class="progress"><div style="--level: 75%"></div></div>
+        </div>
+        <div class="skill">
+          <span>SQL</span>
+          <div class="progress"><div style="--level: 70%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <footer> <!-- Footer section -->
+      &copy; Gelila • Last Updated September 2025 <!-- Footer text -->
+    </footer>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+<!-- <!DOCTYPE html> <!-- Declares the document type and version of HTML -->
 <html lang="en"> <!-- Root element of the page, language is English -->
 
 <head>
@@ -288,4 +548,4 @@
     });
   </script>
 </body>
-</html>
+</html> -->
